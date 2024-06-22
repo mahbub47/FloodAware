@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/light"
+    tools:context=".Signup"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/sign_up_back_shape"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <TextView
+            android:id="@+id/loginLabel01"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="54dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Login"
+            android:textAlignment="center"
+            android:textColor="@color/dark"
+            android:textSize="40sp" />
+
+        <TextView
+            android:id="@+id/loginLabel02"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
+            android:fontFamily="@font/poppins_light"
+            android:text="Login to continue"
+            android:textAlignment="center"
+            android:textColor="@color/dark"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="right"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/loginEmailET"
+                android:layout_width="340dp"
+                android:layout_height="48dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/edittext_back_shape"
+                android:ems="10"
+                android:fontFamily="@font/poppins"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:paddingLeft="20dp"
+                android:textColor="@color/dark"
+                android:textColorHint="@color/dark"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/loginPassET"
+                android:layout_width="340dp"
+                android:layout_height="48dp"
+                android:layout_marginBottom="70dp"
+                android:background="@drawable/edittext_back_shape"
+                android:ems="10"
+                android:fontFamily="@font/poppins"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:paddingLeft="20dp"
+                android:textColor="@color/dark"
+                android:textColorHint="@color/dark"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/signupRedirectTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/poppins"
+                android:text="Don’t have an account?Signup"
+                android:textAlignment="center"
+                android:textColor="@color/dark"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/loginBtn"
+        android:layout_width="260dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/button_shape_red"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Login"
+        android:textColor="@color/light"
+        android:textSize="18sp" />
+
+</LinearLayout>
