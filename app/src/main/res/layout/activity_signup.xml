@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:background="@color/light"
     tools:context=".Signup"
     android:orientation="vertical"
@@ -13,7 +13,7 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@drawable/sign_up_back_shape"
         android:gravity="center"
         android:orientation="vertical"
@@ -24,37 +24,43 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0">
 
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="54dp"
-            android:fontFamily="@font/poppins_semibold"
-            android:text="Sign Up"
-            android:textAlignment="center"
-            android:textColor="@color/dark"
-            android:textSize="40sp" />
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="40dp"
-            android:fontFamily="@font/poppins_light"
-            android:text="Create new account"
-            android:textAlignment="center"
-            android:textColor="@color/dark"
-            android:textSize="16sp" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="right"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="54dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="Sign Up"
+                android:textAlignment="center"
+                android:textColor="@color/dark"
+                android:textSize="40sp" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="40dp"
+                android:fontFamily="@font/poppins_light"
+                android:text="Create new account"
+                android:textAlignment="center"
+                android:textColor="@color/dark"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
             <EditText
                 android:id="@+id/signupNamelET"
-                android:layout_width="340dp"
+                android:layout_width="0dp"
                 android:layout_height="48dp"
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/edittext_back_shape"
@@ -65,11 +71,16 @@
                 android:paddingLeft="20dp"
                 android:textColor="@color/dark"
                 android:textColorHint="@color/dark"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@id/signupEmailET"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@id/guideline8"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
                 android:id="@+id/signupEmailET"
-                android:layout_width="340dp"
+                android:layout_width="0dp"
                 android:layout_height="48dp"
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/edittext_back_shape"
@@ -80,11 +91,16 @@
                 android:paddingLeft="20dp"
                 android:textColor="@color/dark"
                 android:textColorHint="@color/dark"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@id/signupPhoneET"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@id/guideline8"
+                app:layout_constraintTop_toBottomOf="@id/signupNamelET" />
 
             <EditText
                 android:id="@+id/signupPhoneET"
-                android:layout_width="340dp"
+                android:layout_width="0dp"
                 android:layout_height="48dp"
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/edittext_back_shape"
@@ -95,11 +111,16 @@
                 android:paddingLeft="20dp"
                 android:textColor="@color/dark"
                 android:textColorHint="@color/dark"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@id/signupPassET"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@id/guideline8"
+                app:layout_constraintTop_toBottomOf="@id/signupEmailET" />
 
             <EditText
                 android:id="@+id/signupPassET"
-                android:layout_width="340dp"
+                android:layout_width="0dp"
                 android:layout_height="48dp"
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/edittext_back_shape"
@@ -110,11 +131,16 @@
                 android:paddingLeft="20dp"
                 android:textColor="@color/dark"
                 android:textColorHint="@color/dark"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@id/signupConPassET"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@id/guideline8"
+                app:layout_constraintTop_toBottomOf="@id/signupPhoneET" />
 
             <EditText
                 android:id="@+id/signupConPassET"
-                android:layout_width="340dp"
+                android:layout_width="0dp"
                 android:layout_height="48dp"
                 android:layout_marginBottom="60dp"
                 android:background="@drawable/edittext_back_shape"
@@ -125,7 +151,28 @@
                 android:paddingLeft="20dp"
                 android:textColor="@color/dark"
                 android:textColorHint="@color/dark"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@id/guideline8"
+                app:layout_constraintTop_toBottomOf="@id/signupPassET" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent=".15" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:id="@+id/loginRedirectLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="vertical"
+            android:gravity="bottom">
 
             <TextView
                 android:id="@+id/loginRedirectTV"
@@ -138,20 +185,43 @@
                 android:textAlignment="center"
                 android:textColor="@color/dark"
                 android:textSize="12sp" />
-
         </LinearLayout>
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/signupBtn"
-        android:layout_width="260dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/button_shape_red"
-        android:fontFamily="@font/poppins_semibold"
-        android:text="Sign Up"
-        android:textColor="@color/light"
-        android:textSize="18sp" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/signupBtn"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:background="@drawable/button_shape_red"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Sign Up"
+            android:textColor="@color/light"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/guideline12"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="@id/guideline10"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.298" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".18" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".82" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>

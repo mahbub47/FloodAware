@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1030093589814",
+    "project_id": "floodaware-4e281",
+    "storage_bucket": "floodaware-4e281.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1030093589814:android:ab5b84d82ad4232bb33797",
+        "android_client_info": {
+          "package_name": "com.example.floodaware"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAAShv-1x6HjqCaSLmMu1qElVxelbIrQNg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
