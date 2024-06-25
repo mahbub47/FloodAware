@@ -73,15 +73,15 @@
             app:layout_constraintTop_toBottomOf="@+id/linearLayout01">
 
             <EditText
-                android:id="@+id/loginEmailET"
+                android:id="@+id/loginPhoneET"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/edittext_back_shape"
                 android:ems="10"
                 android:fontFamily="@font/poppins"
-                android:hint="Email"
-                android:inputType="textEmailAddress"
+                android:hint="Phone"
+                android:inputType="phone"
                 android:paddingLeft="20dp"
                 android:textColor="@color/dark"
                 android:textColorHint="@color/dark"
@@ -112,7 +112,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/loginEmailET"
+                app:layout_constraintTop_toBottomOf="@+id/loginPhoneET"
                 app:layout_constraintVertical_bias="1.0" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

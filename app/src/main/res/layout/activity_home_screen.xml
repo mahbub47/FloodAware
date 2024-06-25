@@ -165,7 +165,7 @@
                     android:fontFamily="@font/poppins_semibold"
                     android:paddingLeft="20dp"
                     android:paddingTop="20dp"
-                    android:text="Flood Alerts"
+                    android:text="Why Flood?"
                     android:textColor="@color/dark"
                     android:textSize="32sp" />
 

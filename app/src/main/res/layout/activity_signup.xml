@@ -66,7 +66,7 @@
                 android:background="@drawable/edittext_back_shape"
                 android:ems="10"
                 android:fontFamily="@font/poppins"
-                android:hint="Name"
+                android:hint="Username"
                 android:inputType="text"
                 android:paddingLeft="20dp"
                 android:textColor="@color/dark"
