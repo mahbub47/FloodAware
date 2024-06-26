@@ -1,6 +1,7 @@
 package com.example.floodaware;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -29,6 +30,9 @@ public class Login extends AppCompatActivity {
     Button loginBtn;
     DatabaseReference reference;
 
+    SharedPreferences lSharedPreference;
+    public static final String SHARED_PREFS = "loginPrefs";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +43,8 @@ public class Login extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        checkUser();
 
         loginPhone = findViewById(R.id.loginPhoneET);
         loginPass = findViewById(R.id.loginPassET);
@@ -59,6 +65,11 @@ public class Login extends AppCompatActivity {
                         if(snapshot.exists()){
                             String dbpass = snapshot.child(phone).child("pass").getValue(String.class);
                             if(pass.equals(dbpass)){
+                                lSharedPreference = getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
+                                SharedPreferences.Editor editor = lSharedPreference.edit();
+                                editor.putBoolean(SHARED_PREFS,true);
+                                editor.commit();
+
                                 Toast.makeText(Login.this,"Login Successful",Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(Login.this,HomeScreen.class));
                                 finish();
@@ -85,6 +96,15 @@ public class Login extends AppCompatActivity {
             startActivity(new Intent(Login.this,Signup.class));
             finish();
         });
+    }
+
+    private void checkUser() {
+        lSharedPreference = getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
+        Boolean isLogedIn = lSharedPreference.getBoolean(SHARED_PREFS,false);
+        if(isLogedIn){
+            startActivity(new Intent(Login.this,HomeScreen.class));
+            finish();
+        }
     }
 
     public boolean validatePhone(){

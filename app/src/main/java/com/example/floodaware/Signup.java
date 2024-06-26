@@ -1,6 +1,7 @@
 package com.example.floodaware;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -30,6 +31,8 @@ public class Signup extends AppCompatActivity {
     EditText signupName,signupEmail,signupPhone,signupPass,signupConPass;
     FirebaseDatabase database;
     DatabaseReference reference;
+    SharedPreferences lSharedPreference;
+    public static final String SHARED_PREFS = "loginPrefs";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +44,7 @@ public class Signup extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        checkUser();
 
         signupName = findViewById(R.id.signupNamelET);
         signupEmail = findViewById(R.id.signupEmailET);
@@ -172,6 +176,15 @@ public class Signup extends AppCompatActivity {
         }else {
             signupConPass.setError("this field must be filled");
             return false;
+        }
+    }
+
+    private void checkUser() {
+        lSharedPreference = getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
+        Boolean isLogedIn = lSharedPreference.getBoolean(SHARED_PREFS,false);
+        if(isLogedIn){
+            startActivity(new Intent(Signup.this,HomeScreen.class));
+            finish();
         }
     }
 

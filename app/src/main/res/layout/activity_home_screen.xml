@@ -119,7 +119,7 @@
                     android:fontFamily="@font/poppins_semibold"
                     android:paddingLeft="20dp"
                     android:paddingTop="20dp"
-                    android:text="Flood Alerts"
+                    android:text="Flood Basics"
                     android:textColor="@color/dark"
                     android:textSize="32sp" />
 
@@ -129,8 +129,10 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
                     android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
                     android:paddingBottom="20dp"
-                    android:text="Gorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit "
+                    android:text="Flooding is an overflowing of water onto land that is normally dry. Floods can happen during heavy rains, when ocean waves come on shore, when snow melts quickly, or when dams or levees break. Damaging flooding may happen with only a few inches of water, or it may cover a house to the rooftop. Floods can occur within minutes or over a long period, and may last days, weeks, or longer.see more..."
+                    android:textAlignment="viewStart"
                     android:textColor="@color/dark"
                     android:textSize="12sp" />
             </LinearLayout>
@@ -175,8 +177,10 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
                     android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
                     android:paddingBottom="20dp"
                     android:text="Gorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit "
+                    android:textAlignment="viewStart"
                     android:textColor="@color/dark"
                     android:textSize="12sp" />
             </LinearLayout>
