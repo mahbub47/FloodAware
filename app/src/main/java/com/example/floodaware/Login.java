@@ -29,8 +29,10 @@ public class Login extends AppCompatActivity {
     Button loginBtn;
     DatabaseReference reference;
 
-    SharedPreferences lSharedPreference;
+    SharedPreferences lSharedPreference,nSharedPreference,pSharedPreference;
     public static final String SHARED_PREFS = "loginPrefs";
+    public static final String SHARED_PREFS_03 = "username";
+    public static final String SHARED_PREFS_04 = "userphone";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,11 +66,23 @@ public class Login extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         if (snapshot.exists()) {
                             String dbpass = snapshot.child(phone).child("pass").getValue(String.class);
+                            String dbPhone = snapshot.child(phone).child("phone").getValue(String.class);
+                            String dbName = snapshot.child(phone).child("name").getValue(String.class);
                             if (pass.equals(dbpass)) {
                                 lSharedPreference = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
                                 SharedPreferences.Editor editor = lSharedPreference.edit();
                                 editor.putBoolean(SHARED_PREFS, true);
                                 editor.apply();
+
+                                nSharedPreference = getSharedPreferences(SHARED_PREFS_03,MODE_PRIVATE);
+                                SharedPreferences.Editor editor1 = nSharedPreference.edit();
+                                editor1.putString(SHARED_PREFS_03,dbName);
+                                editor1.apply();
+
+                                pSharedPreference = getSharedPreferences(SHARED_PREFS_04,MODE_PRIVATE);
+                                SharedPreferences.Editor editor2 = pSharedPreference.edit();
+                                editor2.putString(SHARED_PREFS_04,dbPhone);
+                                editor2.apply();
 
                                 Toast.makeText(Login.this, "Login Successful", Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(Login.this, HomeScreen.class));

@@ -45,10 +45,9 @@
             android:textAlignment="viewStart"
             android:textColor="@color/dark"
             android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="@+id/profileIV"
+            app:layout_constraintBottom_toTopOf="@+id/userPhoneTV"
             app:layout_constraintStart_toEndOf="@+id/profileIV"
-            app:layout_constraintTop_toTopOf="@+id/profileIV"
-            app:layout_constraintVertical_bias="0.322" />
+            app:layout_constraintTop_toTopOf="@+id/profileIV" />
 
         <TextView
             android:id="@+id/userPhoneTV"
@@ -60,10 +59,9 @@
             android:textAlignment="viewStart"
             android:textColor="@color/dark"
             android:textSize="12sp"
+            app:layout_constraintTop_toBottomOf="@+id/userNameTV"
             app:layout_constraintBottom_toBottomOf="@+id/profileIV"
-            app:layout_constraintStart_toEndOf="@+id/profileIV"
-            app:layout_constraintTop_toTopOf="@+id/profileIV"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintStart_toEndOf="@+id/profileIV" />
 
         <ImageView
             android:id="@+id/notificationIV"
@@ -179,7 +177,7 @@
                     android:paddingLeft="20dp"
                     android:paddingRight="20dp"
                     android:paddingBottom="20dp"
-                    android:text="Gorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit "
+                    android:text="Floods are the most frequent type of natural disaster and occur when an overflow of water submerges land that is usually dry. Floods are often caused by heavy rainfall, rapid snowmelt or a storm surge from a tropical cyclone or tsunami in coastal areas."
                     android:textAlignment="viewStart"
                     android:textColor="@color/dark"
                     android:textSize="12sp" />

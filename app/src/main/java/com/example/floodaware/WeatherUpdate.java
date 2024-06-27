@@ -75,10 +75,16 @@ public class WeatherUpdate extends AppCompatActivity {
         locationIV.setOnClickListener(v -> {
             getLocationDialog();
         });
-
-        Toast.makeText(WeatherUpdate.this,"click location icon to change the location",Toast.LENGTH_SHORT).show();
+        Toast.makeText(WeatherUpdate.this,"click location icon to change the location",Toast.LENGTH_LONG).show();
 
     }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(WeatherUpdate.this, HomeScreen.class));
+        finish();
+    }
+
 
     private void getLocationDialog() {
         Dialog dialog = new Dialog(WeatherUpdate.this,R.style.DialogStyle);

@@ -1,6 +1,7 @@
 package com.example.floodaware;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.widget.ImageView;
 
@@ -13,6 +14,7 @@ import androidx.core.view.WindowInsetsCompat;
 public class DevInfoScreen extends AppCompatActivity {
 
     ImageView backDevinfo;
+    ImageView instaIV,linkedinIV,githubIV;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,5 +32,31 @@ public class DevInfoScreen extends AppCompatActivity {
             startActivity(new Intent(DevInfoScreen.this,SettingScreen.class));
             finish();
         });
+
+        instaIV = findViewById(R.id.instaIV);
+        linkedinIV = findViewById(R.id.linkedinIV);
+        githubIV = findViewById(R.id.githubIV);
+
+        instaIV.setOnClickListener(v -> {
+            gotoUrl("https://www.instagram.com/am.ashikk/");
+        });
+
+        linkedinIV.setOnClickListener(v -> {
+            gotoUrl("https://www.linkedin.com/in/mahbub-ahmed-ashik/");
+        });
+
+        githubIV.setOnClickListener(v -> {
+            gotoUrl("https://github.com/mahbub47");
+        });
+    }
+
+    private void gotoUrl(String s) {
+        Uri uri = Uri.parse(s);
+        startActivity(new Intent(Intent.ACTION_VIEW,uri));
+    }
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(DevInfoScreen.this, SettingScreen.class));
+        finish();
     }
 }

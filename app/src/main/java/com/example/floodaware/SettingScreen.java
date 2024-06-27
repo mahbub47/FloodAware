@@ -19,6 +19,10 @@ public class SettingScreen extends AppCompatActivity {
     Button logoutBtn;
     SharedPreferences sSharedPreference;
     TextView devInfoRedirect;
+    TextView userNameTV,userPhoneTV;
+    public static final String SHARED_PREFS_03 = "username";
+    public static final String SHARED_PREFS_04 = "userphone";
+    SharedPreferences nSharedPreference,pSharedPreference;
 
     public static final String SHARED_PREFS = "loginPrefs";
     @Override
@@ -55,5 +59,21 @@ public class SettingScreen extends AppCompatActivity {
             startActivity(new Intent(SettingScreen.this,DevInfoScreen.class));
             finish();
         });
+
+        userNameTV = findViewById(R.id.userNameTV);
+        userPhoneTV = findViewById(R.id.userPhoneTV);
+        nSharedPreference = getSharedPreferences(SHARED_PREFS_03,MODE_PRIVATE);
+        String userName = nSharedPreference.getString(SHARED_PREFS_03,"Username");
+        userNameTV.setText(userName);
+
+        pSharedPreference = getSharedPreferences(SHARED_PREFS_04,MODE_PRIVATE);
+        String userPhone = pSharedPreference.getString(SHARED_PREFS_04,"User phone");
+        userPhoneTV.setText(userPhone);
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(SettingScreen.this, HomeScreen.class));
+        finish();
     }
 }
