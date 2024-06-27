@@ -5,7 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SettingScreen">
+    tools:context=".SettingScreen"
+    android:background="@color/light">
 
     <ImageView
         android:id="@+id/backIconSetting"
@@ -81,20 +82,7 @@
         app:layout_constraintVertical_bias="0.333"
         app:srcCompat="@drawable/editprofileicon" />
 
-    <Button
-        android:id="@+id/addLocationBtn"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="76dp"
-        android:background="@drawable/setting_button_shape"
-        android:fontFamily="@font/poppins_semibold"
-        android:text="Add Location"
-        android:textColor="@color/light"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline15"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
 
     <Button
         android:id="@+id/logoutBtn"
@@ -109,7 +97,7 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline15"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addLocationBtn" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline15"

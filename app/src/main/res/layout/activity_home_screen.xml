@@ -131,7 +131,7 @@
                     android:paddingLeft="20dp"
                     android:paddingRight="20dp"
                     android:paddingBottom="20dp"
-                    android:text="Flooding is an overflowing of water onto land that is normally dry. Floods can happen during heavy rains, when ocean waves come on shore, when snow melts quickly, or when dams or levees break. Damaging flooding may happen with only a few inches of water, or it may cover a house to the rooftop. Floods can occur within minutes or over a long period, and may last days, weeks, or longer.see more..."
+                    android:text="Flooding is an overflowing of water onto land that is normally dry. Floods can happen during heavy rains, when ocean waves come on shore, when snow melts quickly, or when dams or levees break. Damaging flooding may .see more..."
                     android:textAlignment="viewStart"
                     android:textColor="@color/dark"
                     android:textSize="12sp" />

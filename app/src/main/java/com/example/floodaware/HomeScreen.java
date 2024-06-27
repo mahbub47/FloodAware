@@ -13,6 +13,7 @@ import androidx.core.view.WindowInsetsCompat;
 public class HomeScreen extends AppCompatActivity {
 
     ImageView settingIV;
+    ImageView weatherIV;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,12 @@ public class HomeScreen extends AppCompatActivity {
         settingIV = findViewById(R.id.gearIconIV);
         settingIV.setOnClickListener(v -> {
             startActivity(new Intent(HomeScreen.this,SettingScreen.class));
+            finish();
+        });
+
+        weatherIV = findViewById(R.id.weatherIconIV);
+        weatherIV.setOnClickListener(v -> {
+            startActivity(new Intent(HomeScreen.this,WeatherUpdate.class));
             finish();
         });
     }

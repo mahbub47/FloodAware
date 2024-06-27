@@ -3,7 +3,6 @@ package com.example.floodaware;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -50,9 +49,10 @@ public class Login extends AppCompatActivity {
         loginPass = findViewById(R.id.loginPassET);
         loginBtn = findViewById(R.id.loginBtn);
 
-        loginBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        loginBtn.setOnClickListener(v -> {
+
+            if(validatePhone() && validatePassword()) {
+
                 reference = FirebaseDatabase.getInstance().getReference("users");
 
                 String phone = loginPhone.getText().toString();
@@ -62,23 +62,23 @@ public class Login extends AppCompatActivity {
                 checkuser.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if(snapshot.exists()){
+                        if (snapshot.exists()) {
                             String dbpass = snapshot.child(phone).child("pass").getValue(String.class);
-                            if(pass.equals(dbpass)){
-                                lSharedPreference = getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
+                            if (pass.equals(dbpass)) {
+                                lSharedPreference = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
                                 SharedPreferences.Editor editor = lSharedPreference.edit();
-                                editor.putBoolean(SHARED_PREFS,true);
-                                editor.commit();
+                                editor.putBoolean(SHARED_PREFS, true);
+                                editor.apply();
 
-                                Toast.makeText(Login.this,"Login Successful",Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(Login.this,HomeScreen.class));
+                                Toast.makeText(Login.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(Login.this, HomeScreen.class));
                                 finish();
-                            }else {
+                            } else {
                                 loginPass.setError("Incorrect password");
                                 loginPass.requestFocus();
                             }
-                        }else {
-                            Toast.makeText(Login.this,"User does not exist",Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(Login.this, "User does not exist", Toast.LENGTH_SHORT).show();
                             loginPhone.requestFocus();
                         }
                     }
@@ -89,6 +89,7 @@ public class Login extends AppCompatActivity {
                     }
                 });
             }
+
         });
 
         signupRedirect = findViewById(R.id.signupRedirectTV);
@@ -100,7 +101,7 @@ public class Login extends AppCompatActivity {
 
     private void checkUser() {
         lSharedPreference = getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
-        Boolean isLogedIn = lSharedPreference.getBoolean(SHARED_PREFS,false);
+        boolean isLogedIn = lSharedPreference.getBoolean(SHARED_PREFS,false);
         if(isLogedIn){
             startActivity(new Intent(Login.this,HomeScreen.class));
             finish();

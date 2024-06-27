@@ -10,6 +10,7 @@ constraintlayout = "2.1.4"
 ssp-android = "1.1.1"
 googleGmsGoogleServices = "4.4.2"
 firebaseDatabase = "21.0.0"
+volley = "1.2.1"
 
 [libraries]
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -21,6 +22,8 @@ activity = { group = "androidx.activity", name = "activity", version.ref = "acti
 constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 intuit = { group = "com.intuit.ssp", name = "ssp-android", version.ref = "ssp-android" }
 firebase-database = { group = "com.google.firebase", name = "firebase-database", version.ref = "firebaseDatabase" }
+volley = { group = "com.android.volley", name = "volley", version.ref = "volley" }
+
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
