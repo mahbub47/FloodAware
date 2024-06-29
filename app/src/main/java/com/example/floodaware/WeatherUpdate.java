@@ -89,7 +89,7 @@ public class WeatherUpdate extends AppCompatActivity {
     private void getLocationDialog() {
         Dialog dialog = new Dialog(WeatherUpdate.this,R.style.DialogStyle);
         dialog.setContentView(R.layout.setlocation_popup_screen);
-        dialog.getWindow().setBackgroundDrawableResource(R.drawable.home_item_back_shape);
+        dialog.getWindow().setBackgroundDrawableResource(R.drawable.popup_back_shape);
         dialog.show();
         ImageView cancelIV = dialog.findViewById(R.id.cancelIV);
         cancelIV.setOnClickListener(v -> {

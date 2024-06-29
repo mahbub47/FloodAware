@@ -39,8 +39,6 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="56dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView13"
-        app:layout_constraintEnd_toStartOf="@+id/guideline17"
         app:layout_constraintStart_toStartOf="@+id/guideline16"
         app:layout_constraintTop_toBottomOf="@+id/backIconDevInfo"
         app:srcCompat="@drawable/myimage" />
@@ -53,13 +51,6 @@
         app:layout_constraintGuide_percent=".1"/>
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline17"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent=".6" />
-
-    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -67,65 +58,21 @@
         app:layout_constraintGuide_percent=".9" />
 
     <TextView
-        android:id="@+id/textView13"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="12dp"
-        android:fontFamily="@font/poppins_semibold"
-        android:text="Mahbub Ahmed Ashik"
-        android:textAlignment="viewStart"
-        android:textColor="@color/dark"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView14"
-        app:layout_constraintEnd_toStartOf="@+id/guideline18"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline16"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
-
-    <TextView
         android:id="@+id/textView14"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="180dp"
         android:fontFamily="@font/poppins"
-        android:text="Hello, I'm Mahbub Ahmed Ashik, a third-year Computer Science and Engineering student at Leading University. As part of Batch 58, Section B+C, and with the ID 2132020102, I am passionate about leveraging technology to solve real-world problems. This passion led me to create FloodAware, an innovative application designed to provide real-time flood monitoring and alerts.  With FloodAware, my goal is to help communities stay informed and prepared, ensuring safety and minimizing the impact of floods. Thank you for choosing FloodAware, and together, let's make a difference in flood awareness and preparedness."
+        android:padding="5dp"
+        android:text="Meet the Team Behind FloodAware! We are a group of third-year Computer Science and Engineering students from Leading University, committed to leveraging technology for community safety. Our team, consisting of Mahbub Ahmed Ashik (ID 2132020102), Jihan Khan (ID 2132020125), and Anik Mollik (ID 2132020092), developed FloodAware as part of our Java Sessional course's lab performance. Together, we aim to provide you with the best tools and information to stay informed and prepared during flood events. Thank you for trusting FloodAware to safeguard your future."
+        android:textAlignment="center"
         android:textColor="@color/dark"
-        android:textSize="12sp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline18"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline16" />
-
-    <ImageView
-        android:id="@+id/instaIV"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="24dp"
         app:layout_constraintStart_toStartOf="@+id/guideline16"
-        app:layout_constraintTop_toBottomOf="@+id/textView14"
-        app:srcCompat="@drawable/instaicon" />
-
-    <ImageView
-        android:id="@+id/linkedinIV"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintStart_toEndOf="@+id/instaIV"
-        app:layout_constraintTop_toBottomOf="@+id/textView14"
-        app:srcCompat="@drawable/linkedinicon" />
-
-    <ImageView
-        android:id="@+id/githubIV"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline17"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/linkedinIV"
-        app:layout_constraintTop_toBottomOf="@+id/textView14"
-        app:srcCompat="@drawable/githubicon" />
+        app:layout_constraintTop_toBottomOf="@+id/textView9"
+        app:layout_constraintVertical_bias="0.721" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

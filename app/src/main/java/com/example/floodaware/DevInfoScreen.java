@@ -14,7 +14,6 @@ import androidx.core.view.WindowInsetsCompat;
 public class DevInfoScreen extends AppCompatActivity {
 
     ImageView backDevinfo;
-    ImageView instaIV,linkedinIV,githubIV;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,21 +32,6 @@ public class DevInfoScreen extends AppCompatActivity {
             finish();
         });
 
-        instaIV = findViewById(R.id.instaIV);
-        linkedinIV = findViewById(R.id.linkedinIV);
-        githubIV = findViewById(R.id.githubIV);
-
-        instaIV.setOnClickListener(v -> {
-            gotoUrl("https://www.instagram.com/am.ashikk/");
-        });
-
-        linkedinIV.setOnClickListener(v -> {
-            gotoUrl("https://www.linkedin.com/in/mahbub-ahmed-ashik/");
-        });
-
-        githubIV.setOnClickListener(v -> {
-            gotoUrl("https://github.com/mahbub47");
-        });
     }
 
     private void gotoUrl(String s) {
