@@ -46,7 +46,7 @@
                 android:fontFamily="@font/poppins_semibold"
                 android:text="Login"
                 android:textAlignment="center"
-                android:textColor="@color/dark"
+                android:textColor="@color/light"
                 android:textSize="40sp" />
 
             <TextView
@@ -57,7 +57,7 @@
                 android:fontFamily="@font/poppins_light"
                 android:text="Login to continue"
                 android:textAlignment="center"
-                android:textColor="@color/dark"
+                android:textColor="@color/light"
                 android:textSize="16sp" />
         </LinearLayout>
 

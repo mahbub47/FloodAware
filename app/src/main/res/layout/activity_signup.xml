@@ -17,6 +17,7 @@
         android:background="@drawable/sign_up_back_shape"
         android:gravity="center"
         android:orientation="vertical"
+        android:weightSum="10"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -27,6 +28,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_weight="3"
             android:orientation="vertical">
 
             <TextView
@@ -37,7 +39,7 @@
                 android:fontFamily="@font/poppins_semibold"
                 android:text="Sign Up"
                 android:textAlignment="center"
-                android:textColor="@color/dark"
+                android:textColor="@color/light"
                 android:textSize="40sp" />
 
             <TextView
@@ -48,7 +50,7 @@
                 android:fontFamily="@font/poppins_light"
                 android:text="Create new account"
                 android:textAlignment="center"
-                android:textColor="@color/dark"
+                android:textColor="@color/light"
                 android:textSize="16sp" />
 
         </LinearLayout>
@@ -171,8 +173,8 @@
             android:id="@+id/loginRedirectLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:orientation="vertical"
-            android:gravity="bottom">
+            android:gravity="bottom"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/loginRedirectTV"
@@ -204,10 +206,10 @@
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/guideline12"
-            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@id/guideline10"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.298" />
+            app:layout_constraintVertical_bias="0.496" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline10"

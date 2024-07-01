@@ -1,22 +1,26 @@
 package com.example.floodaware;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.app.Dialog;
-import android.content.Intent;
+import android.content.Context;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -31,103 +35,54 @@ import org.json.JSONObject;
 
 import java.text.DecimalFormat;
 
-public class WeatherUpdate extends AppCompatActivity {
-
+public class WeatherFragment extends Fragment {
     private final String url = "https://api.openweathermap.org/data/2.5/weather";
     private final String appid = "a6e4077d32902bcd26853ec81b4ed5c1";
     DecimalFormat df = new DecimalFormat("#.#");
 
-    TextView descriptionWeather, temperatureTV, feelslikeTV, humidityTV ,pressureTV, windTV, cloudTV, visibleTV, cityNameTV;
-    ImageView locationIV,homeIV,safetyIV,emergencyIV,settingIV;
-
     private final String SHARED_PREFS_02 = "location";
     SharedPreferences wSharedPreference;
+
+    Context ctx;
+
+    TextView descriptionWeather, temperatureTV, feelslikeTV, humidityTV ,pressureTV, windTV, cloudTV, visibleTV, cityNameTV;
+    ImageView locationIV;
+    public WeatherFragment() {
+        // Required empty public constructor
+    }
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_weather_update);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
-        descriptionWeather = findViewById(R.id.weatherDescriptionTV);
-        temperatureTV = findViewById(R.id.temperatureTV);
-        feelslikeTV = findViewById(R.id.feelslikeValTV);
-        humidityTV = findViewById(R.id.humidityValIV);
-        pressureTV = findViewById(R.id.pressureValTV);
-        windTV = findViewById(R.id.windValTV);
-        cloudTV = findViewById(R.id.cloudValTV);
-        visibleTV = findViewById(R.id.visibilityValIV);
-        cityNameTV = findViewById(R.id.cityNameTV);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_weather, container, false);
+
+        descriptionWeather = view.findViewById(R.id.weatherDescriptionTV);
+        temperatureTV = view.findViewById(R.id.temperatureTV);
+        feelslikeTV = view.findViewById(R.id.feelslikeValTV);
+        humidityTV = view.findViewById(R.id.humidityValIV);
+        pressureTV = view.findViewById(R.id.pressureValTV);
+        windTV = view.findViewById(R.id.windValTV);
+        cloudTV = view.findViewById(R.id.cloudValTV);
+        visibleTV = view.findViewById(R.id.visibilityValIV);
+        cityNameTV = view.findViewById(R.id.cityNameTV);
+
+        ctx = this.getActivity().getApplicationContext();
 
         weatherUpdate();
 
-        locationIV = findViewById(R.id.locationIV);
+        Toast.makeText(ctx,"click location icon to change the location",Toast.LENGTH_LONG).show();
+        locationIV = view.findViewById(R.id.locationIV);
         locationIV.setOnClickListener(v -> {
-            getLocationDialog();
+            ((HomeScreen)getActivity()).getLocationDialog();
         });
 
-        homeIV = findViewById(R.id.homeIcontIV);
-        emergencyIV = findViewById(R.id.floodhubIconIV);
-        safetyIV = findViewById(R.id.safetyIconIV);
-        settingIV = findViewById(R.id.gearIconIV);
-
-        homeIV.setOnClickListener(v -> {
-            startActivity(new Intent(WeatherUpdate.this, HomeScreen.class));
-            finish();
-        });
-
-        safetyIV.setOnClickListener(v -> {
-            startActivity(new Intent(WeatherUpdate.this, SafetyList.class));
-            finish();
-        });
-
-        settingIV.setOnClickListener(v -> {
-            startActivity(new Intent(WeatherUpdate.this,SettingScreen.class));
-            finish();
-        });
-
-        Toast.makeText(WeatherUpdate.this,"click location icon to change the location",Toast.LENGTH_LONG).show();
-
-    }
-
-    @Override
-    public void onBackPressed() {
-        startActivity(new Intent(WeatherUpdate.this, HomeScreen.class));
-        finish();
-    }
-
-
-    private void getLocationDialog() {
-        Dialog dialog = new Dialog(WeatherUpdate.this,R.style.DialogStyle);
-        dialog.setContentView(R.layout.setlocation_popup_screen);
-        dialog.getWindow().setBackgroundDrawableResource(R.drawable.popup_back_shape);
-        dialog.show();
-        ImageView cancelIV = dialog.findViewById(R.id.cancelIV);
-        cancelIV.setOnClickListener(v -> {
-            dialog.dismiss();
-        });
-
-        Button setLocationBtn = dialog.findViewById(R.id.setLocationBtn);
-        EditText setLocationET = dialog.findViewById(R.id.setLocationET);
-        setLocationBtn.setOnClickListener(v -> {
-            String city = setLocationET.getText().toString();
-            wSharedPreference = getSharedPreferences(SHARED_PREFS_02, MODE_PRIVATE);
-            SharedPreferences.Editor editor = wSharedPreference.edit();
-            editor.putString(SHARED_PREFS_02, city);
-            editor.apply();
-
-            weatherUpdate();
-
-            dialog.dismiss();
-        });
+        return view;
     }
 
     public void weatherUpdate(){
 
-        wSharedPreference = getSharedPreferences(SHARED_PREFS_02,MODE_PRIVATE);
+        wSharedPreference = this.getActivity().getSharedPreferences(SHARED_PREFS_02,MODE_PRIVATE);
         String city = wSharedPreference.getString(SHARED_PREFS_02,"London");
         String tempUrl = "";
         String country = "";
@@ -190,11 +145,12 @@ public class WeatherUpdate extends AppCompatActivity {
 
                 @Override
                 public void onErrorResponse(VolleyError error) {
-                    Toast.makeText(getApplicationContext(), error.toString().trim(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ctx, error.toString().trim(), Toast.LENGTH_SHORT).show();
                 }
             });
-            RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+            RequestQueue requestQueue = Volley.newRequestQueue(this.getActivity().getApplicationContext());
             requestQueue.add(stringRequest);
         }
     }
+
 }

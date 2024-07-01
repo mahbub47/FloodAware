@@ -15,7 +15,6 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class SettingScreen extends AppCompatActivity {
 
-    ImageView backSetting;
     Button logoutBtn;
     SharedPreferences sSharedPreference;
     TextView devInfoRedirect;
@@ -25,6 +24,8 @@ public class SettingScreen extends AppCompatActivity {
     SharedPreferences nSharedPreference,pSharedPreference;
 
     public static final String SHARED_PREFS = "loginPrefs";
+
+    ImageView homeIV,weatherIV,safetyIV,emergencyIV;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,11 +37,6 @@ public class SettingScreen extends AppCompatActivity {
             return insets;
         });
 
-        backSetting = findViewById(R.id.backIconSetting);
-        backSetting.setOnClickListener(v -> {
-            startActivity(new Intent(SettingScreen.this,HomeScreen.class));
-            finish();
-        });
 
         logoutBtn = findViewById(R.id.logoutBtn);
         logoutBtn.setOnClickListener(v -> {
@@ -69,6 +65,26 @@ public class SettingScreen extends AppCompatActivity {
         pSharedPreference = getSharedPreferences(SHARED_PREFS_04,MODE_PRIVATE);
         String userPhone = pSharedPreference.getString(SHARED_PREFS_04,"User phone");
         userPhoneTV.setText(userPhone);
+
+        homeIV = findViewById(R.id.homeIcontIV);
+        weatherIV = findViewById(R.id.weatherIconIV);
+        emergencyIV = findViewById(R.id.floodhubIconIV);
+        safetyIV = findViewById(R.id.safetyIconIV);
+
+        homeIV.setOnClickListener(v -> {
+            startActivity(new Intent(SettingScreen.this, HomeScreen.class));
+            finish();
+        });
+
+        weatherIV.setOnClickListener(v -> {
+            startActivity(new Intent(SettingScreen.this, WeatherUpdate.class));
+            finish();
+        });
+
+        safetyIV.setOnClickListener(v -> {
+            startActivity(new Intent(SettingScreen.this, SafetyList.class));
+            finish();
+        });
     }
 
     @Override

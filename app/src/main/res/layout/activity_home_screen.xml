@@ -10,70 +10,16 @@
     android:orientation="vertical"
     tools:context=".HomeScreen">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/homeLayout01"
+    <FrameLayout
+        android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="@drawable/home_back_shape"
-        android:paddingBottom="20dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="spread_inside">
-
-        <ImageView
-            android:id="@+id/profileIV"
-            android:layout_width="54dp"
-            android:layout_height="54dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.044"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.026"
-            app:srcCompat="@drawable/profileicon" />
-
-        <TextView
-            android:id="@+id/userNameTV"
-            android:layout_width="257dp"
-            android:layout_height="21dp"
-            android:layout_marginStart="12dp"
-            android:fontFamily="@font/poppins_semibold"
-            android:text="Mahbub Ahmed"
-            android:textAlignment="viewStart"
-            android:textColor="@color/dark"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@+id/userPhoneTV"
-            app:layout_constraintStart_toEndOf="@+id/profileIV"
-            app:layout_constraintTop_toTopOf="@+id/profileIV" />
-
-        <TextView
-            android:id="@+id/userPhoneTV"
-            android:layout_width="258dp"
-            android:layout_height="20dp"
-            android:layout_marginStart="12dp"
-            android:fontFamily="@font/poppins"
-            android:text="+880 1704 4811 25"
-            android:textAlignment="viewStart"
-            android:textColor="@color/dark"
-            android:textSize="12sp"
-            app:layout_constraintTop_toBottomOf="@+id/userNameTV"
-            app:layout_constraintBottom_toBottomOf="@+id/profileIV"
-            app:layout_constraintStart_toEndOf="@+id/profileIV" />
-
-        <ImageView
-            android:id="@+id/notificationIV"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            app:layout_constraintBottom_toBottomOf="@+id/profileIV"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.958"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/profileIV"
-            app:layout_constraintVertical_bias="0.44"
-            app:srcCompat="@drawable/notificationicon" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline11"
@@ -89,102 +35,8 @@
             android:orientation="vertical"
             app:layout_constraintGuide_percent=".9" />
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardView01"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/home_item_back_shape"
-            android:elevation="@dimen/_19ssp"
-            app:cardCornerRadius="15dp"
-            app:layout_constraintBottom_toTopOf="@+id/card02"
-            app:layout_constraintEnd_toEndOf="@+id/guideline14"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/guideline11"
-            app:layout_constraintTop_toBottomOf="@+id/profileIV"
-            app:layout_constraintVertical_chainStyle="packed">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/home_item_back_shape"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/textView5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:fontFamily="@font/poppins_semibold"
-                    android:paddingLeft="20dp"
-                    android:paddingTop="20dp"
-                    android:text="Flood Basics"
-                    android:textColor="@color/dark"
-                    android:textSize="32sp" />
-
-                <TextView
-                    android:id="@+id/textView6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins"
-                    android:paddingLeft="20dp"
-                    android:paddingRight="20dp"
-                    android:paddingBottom="20dp"
-                    android:text="Flooding is an overflowing of water onto land that is normally dry. Floods can happen during heavy rains, when ocean waves come on shore, when snow melts quickly, or when dams or levees break. Damaging flooding may .see more..."
-                    android:textAlignment="viewStart"
-                    android:textColor="@color/dark"
-                    android:textSize="12sp" />
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/card02"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:background="@drawable/home_item_back_shape"
-            android:elevation="@dimen/_19ssp"
-            app:cardCornerRadius="15dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/guideline14"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/guideline11"
-            app:layout_constraintTop_toBottomOf="@+id/cardView01"
-            app:layout_constraintVertical_bias="0.0">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/home_item_back_shape"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/textView7"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:fontFamily="@font/poppins_semibold"
-                    android:paddingLeft="20dp"
-                    android:paddingTop="20dp"
-                    android:text="Why Flood?"
-                    android:textColor="@color/dark"
-                    android:textSize="32sp" />
-
-                <TextView
-                    android:id="@+id/textView8"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins"
-                    android:paddingLeft="20dp"
-                    android:paddingRight="20dp"
-                    android:paddingBottom="20dp"
-                    android:text="Floods are the most frequent type of natural disaster and occur when an overflow of water submerges land that is usually dry. Floods are often caused by heavy rainfall, rapid snowmelt or a storm surge from a tropical cyclone or tsunami in coastal areas."
-                    android:textAlignment="viewStart"
-                    android:textColor="@color/dark"
-                    android:textSize="12sp" />
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -196,7 +48,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/homeLayout01">
+        app:layout_constraintTop_toBottomOf="@+id/container">
 
         <ImageView
             android:id="@+id/homeIcontIV"

@@ -37,6 +37,8 @@ dependencies {
     implementation(libs.intuit)
     implementation(libs.constraintlayout)
     implementation(libs.volley)
+    implementation("com.github.KwabenBerko:News-API-Java:1.0.2")
+    implementation("com.squareup.picasso:picasso:2.8")
     implementation(libs.firebase.database)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)

@@ -5,506 +5,565 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light"
+    android:background="@color/primary"
     android:paddingBottom="5dp"
     tools:context=".WeatherUpdate">
 
-    <ImageView
-        android:id="@+id/backIconWeather"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/homeLayout01"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/home_back_shape"
+        android:paddingBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/backicon" />
+        app:layout_constraintVertical_chainStyle="spread_inside">
 
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:fontFamily="@font/poppins_semibold"
-        android:text="Weather update"
-        android:textAlignment="center"
-        android:textColor="@color/dark"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/backIconWeather"
+
+
+        <TextView
+            android:id="@+id/cityNameTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Sylhet"
+            android:textAlignment="center"
+            android:textColor="@color/dark"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/temperatureTV"
+            app:layout_constraintEnd_toStartOf="@+id/locationIV"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/locationIV"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/cityNameTV"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/cityNameTV"
+            app:layout_constraintTop_toTopOf="@+id/cityNameTV"
+            app:srcCompat="@drawable/locationicon" />
+
+        <TextView
+            android:id="@+id/temperatureTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_light"
+            android:text="29º"
+            android:textAlignment="center"
+            android:textColor="@color/dark"
+            android:textSize="112sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cityNameTV" />
+
+        <TextView
+            android:id="@+id/weatherDescriptionTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-30dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="light rain"
+            android:textAlignment="center"
+            android:textColor="@color/dark"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/temperatureTV"
+            app:layout_constraintStart_toStartOf="@+id/temperatureTV"
+            app:layout_constraintTop_toBottomOf="@+id/temperatureTV" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/feelslikeCV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/home_item_back_shape"
+            android:elevation="@dimen/_19ssp"
+            app:cardCornerRadius="15dp"
+            app:layout_constraintEnd_toStartOf="@+id/firstEnd"
+            app:layout_constraintStart_toStartOf="@+id/firstStart"
+            app:layout_constraintTop_toBottomOf="@+id/temperatureTV">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/home_item_back_shape"
+                android:orientation="vertical"
+                android:weightSum="10">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:layout_weight="5"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp"
+                    android:textAlignment="center"
+                    android:weightSum="10">
+
+                    <ImageView
+                        android:id="@+id/feelslikeIV"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_weight="2"
+                        app:srcCompat="@drawable/tempicon" />
+
+                    <TextView
+                        android:id="@+id/feelslikeTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="8"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="Feels like"
+                        android:textColor="@color/light"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/feelslikeValTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:fontFamily="@font/poppins_medium"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="15dp"
+                    android:text="34 degree celcius"
+                    android:textAlignment="center"
+                    android:textColor="@color/light"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/humidityCV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/home_item_back_shape"
+            android:elevation="@dimen/_19ssp"
+            app:cardCornerRadius="15dp"
+            app:layout_constraintEnd_toStartOf="@+id/secEnd"
+            app:layout_constraintStart_toStartOf="@+id/secStart"
+            app:layout_constraintTop_toBottomOf="@+id/temperatureTV">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/home_item_back_shape"
+                android:orientation="vertical"
+                android:weightSum="10">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:layout_weight="5"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp"
+                    android:textAlignment="center"
+                    android:weightSum="10">
+
+                    <ImageView
+                        android:id="@+id/humidityIV"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_weight="2"
+                        app:srcCompat="@drawable/humidityicon" />
+
+                    <TextView
+                        android:id="@+id/humidityTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="8"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="Humidity"
+                        android:textColor="@color/light"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/humidityValIV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:fontFamily="@font/poppins_medium"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="15dp"
+                    android:text="34%"
+                    android:textAlignment="center"
+                    android:textColor="@color/light"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cloudCV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/home_item_back_shape"
+            android:elevation="@dimen/_19ssp"
+            app:cardCornerRadius="15dp"
+            app:layout_constraintEnd_toStartOf="@+id/secEnd"
+            app:layout_constraintStart_toStartOf="@+id/secStart"
+            app:layout_constraintTop_toBottomOf="@+id/humidityCV">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/home_item_back_shape"
+                android:orientation="vertical"
+                android:weightSum="10">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:layout_weight="5"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp"
+                    android:textAlignment="center"
+                    android:weightSum="10">
+
+                    <ImageView
+                        android:id="@+id/cloudIV"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_weight="2"
+                        app:srcCompat="@drawable/cloudicon" />
+
+                    <TextView
+                        android:id="@+id/cloudTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="8"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="Cloud"
+                        android:textColor="@color/light"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/cloudValTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:fontFamily="@font/poppins_medium"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="15dp"
+                    android:text="60%"
+                    android:textAlignment="center"
+                    android:textColor="@color/light"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/pressureCV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/home_item_back_shape"
+            android:elevation="@dimen/_19ssp"
+            app:cardCornerRadius="15dp"
+            app:layout_constraintEnd_toStartOf="@+id/secEnd"
+            app:layout_constraintStart_toStartOf="@+id/secStart"
+            app:layout_constraintTop_toBottomOf="@+id/cloudCV">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/home_item_back_shape"
+                android:orientation="vertical"
+                android:weightSum="10">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:layout_weight="5"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp"
+                    android:textAlignment="center"
+                    android:weightSum="10">
+
+                    <ImageView
+                        android:id="@+id/pressureIV"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_weight="2"
+                        app:srcCompat="@drawable/pressureicon" />
+
+                    <TextView
+                        android:id="@+id/pressureTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="8"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="Pressure"
+                        android:textColor="@color/light"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/pressureValTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:fontFamily="@font/poppins_medium"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="15dp"
+                    android:text="6m/s"
+                    android:textAlignment="center"
+                    android:textColor="@color/light"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/windCV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/home_item_back_shape"
+            android:elevation="@dimen/_19ssp"
+            app:cardCornerRadius="15dp"
+            app:layout_constraintEnd_toStartOf="@+id/firstEnd"
+            app:layout_constraintStart_toStartOf="@+id/firstStart"
+            app:layout_constraintTop_toBottomOf="@+id/feelslikeCV">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/home_item_back_shape"
+                android:orientation="vertical"
+                android:weightSum="10">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:layout_weight="5"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp"
+                    android:textAlignment="center"
+                    android:weightSum="10">
+
+                    <ImageView
+                        android:id="@+id/windIV"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_weight="2"
+                        app:srcCompat="@drawable/windicon" />
+
+                    <TextView
+                        android:id="@+id/windTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="8"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="Wind speed"
+                        android:textColor="@color/light"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/windValTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:fontFamily="@font/poppins_medium"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="15dp"
+                    android:text="3 km/hr"
+                    android:textAlignment="center"
+                    android:textColor="@color/light"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/visibilityCV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/home_item_back_shape"
+            android:elevation="@dimen/_19ssp"
+            app:cardCornerRadius="15dp"
+            app:layout_constraintEnd_toStartOf="@+id/firstEnd"
+            app:layout_constraintStart_toStartOf="@+id/firstStart"
+            app:layout_constraintTop_toBottomOf="@+id/windCV">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/home_item_back_shape"
+                android:orientation="vertical"
+                android:weightSum="10">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:layout_weight="5"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp"
+                    android:textAlignment="center"
+                    android:weightSum="10">
+
+                    <ImageView
+                        android:id="@+id/visibilityIV"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_weight="2"
+                        app:srcCompat="@drawable/eyeicon" />
+
+                    <TextView
+                        android:id="@+id/visibilityTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="8"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="Visibility"
+                        android:textColor="@color/light"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/visibilityValIV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:fontFamily="@font/poppins_medium"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="15dp"
+                    android:text="1000"
+                    android:textAlignment="center"
+                    android:textColor="@color/light"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/secEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".95" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/firstStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".05" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/secStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".525" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/firstEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".475"/>
+
+
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".1" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".9" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:baselineAligned="true"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/backIconWeather"
-        app:layout_constraintTop_toTopOf="@+id/backIconWeather" />
-
-    <TextView
-        android:id="@+id/cityNameTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:fontFamily="@font/poppins_semibold"
-        android:text="Sylhet"
-        android:textAlignment="center"
-        android:textColor="@color/dark"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/temperatureTV"
-        app:layout_constraintEnd_toStartOf="@+id/locationIV"
-        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/backIconWeather" />
+        app:layout_constraintTop_toBottomOf="@+id/homeLayout01">
 
-    <ImageView
-        android:id="@+id/locationIV"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginLeft="10dp"
-        app:layout_constraintBottom_toBottomOf="@+id/cityNameTV"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/cityNameTV"
-        app:layout_constraintTop_toTopOf="@+id/cityNameTV"
-        app:srcCompat="@drawable/locationicon" />
+        <ImageView
+            android:id="@+id/homeIcontIV"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/homeicon" />
 
-    <TextView
-        android:id="@+id/temperatureTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/poppins_light"
-        android:text="29º"
-        android:textAlignment="center"
-        android:textColor="@color/dark"
-        android:textSize="112sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cityNameTV" />
+        <ImageView
+            android:id="@+id/floodhubIconIV"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/floodhubicon" />
 
-    <TextView
-        android:id="@+id/weatherDescriptionTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="-30dp"
-        android:fontFamily="@font/poppins_medium"
-        android:text="light rain"
-        android:textAlignment="center"
-        android:textColor="@color/dark"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/temperatureTV"
-        app:layout_constraintStart_toStartOf="@+id/temperatureTV"
-        app:layout_constraintTop_toBottomOf="@+id/temperatureTV" />
+        <ImageView
+            android:id="@+id/safetyIconIV"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/safetyicon" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/feelslikeCV"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/home_item_back_shape"
-        android:elevation="@dimen/_19ssp"
-        app:cardCornerRadius="15dp"
-        app:layout_constraintEnd_toStartOf="@+id/firstEnd"
-        app:layout_constraintStart_toStartOf="@+id/firstStart"
-        app:layout_constraintTop_toBottomOf="@+id/temperatureTV">
+        <ImageView
+            android:id="@+id/weatherIconIV"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/weathericon" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/home_item_back_shape"
-            android:orientation="vertical"
-            android:weightSum="10">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:layout_marginTop="15dp"
-                android:layout_weight="5"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:paddingLeft="10dp"
-                android:textAlignment="center"
-                android:weightSum="10">
-
-                <ImageView
-                    android:id="@+id/feelslikeIV"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_weight="2"
-                    app:srcCompat="@drawable/tempicon" />
-
-                <TextView
-                    android:id="@+id/feelslikeTV"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="8"
-                    android:fontFamily="sans-serif-medium"
-                    android:text="Feels like"
-                    android:textColor="@color/dark"
-                    android:textSize="14sp" />
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/feelslikeValTV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="5"
-                android:fontFamily="@font/poppins_medium"
-                android:paddingLeft="20dp"
-                android:paddingTop="5dp"
-                android:paddingBottom="15dp"
-                android:text="34 degree celcius"
-                android:textAlignment="center"
-                android:textColor="@color/dark"
-                android:textSize="12sp" />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/humidityCV"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/home_item_back_shape"
-        android:elevation="@dimen/_19ssp"
-        app:cardCornerRadius="15dp"
-        app:layout_constraintEnd_toStartOf="@+id/secEnd"
-        app:layout_constraintStart_toStartOf="@+id/secStart"
-        app:layout_constraintTop_toBottomOf="@+id/temperatureTV">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/home_item_back_shape"
-            android:orientation="vertical"
-            android:weightSum="10">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:layout_marginTop="15dp"
-                android:layout_weight="5"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:paddingLeft="10dp"
-                android:textAlignment="center"
-                android:weightSum="10">
-
-                <ImageView
-                    android:id="@+id/humidityIV"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_weight="2"
-                    app:srcCompat="@drawable/humidityicon" />
-
-                <TextView
-                    android:id="@+id/humidityTV"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="8"
-                    android:fontFamily="sans-serif-medium"
-                    android:text="Humidity"
-                    android:textColor="@color/dark"
-                    android:textSize="14sp" />
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/humidityValIV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="5"
-                android:fontFamily="@font/poppins_medium"
-                android:paddingLeft="20dp"
-                android:paddingTop="5dp"
-                android:paddingBottom="15dp"
-                android:text="34%"
-                android:textAlignment="center"
-                android:textColor="@color/dark"
-                android:textSize="12sp" />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cloudCV"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/home_item_back_shape"
-        android:elevation="@dimen/_19ssp"
-        app:cardCornerRadius="15dp"
-        app:layout_constraintEnd_toStartOf="@+id/secEnd"
-        app:layout_constraintStart_toStartOf="@+id/secStart"
-        app:layout_constraintTop_toBottomOf="@+id/humidityCV">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/home_item_back_shape"
-            android:orientation="vertical"
-            android:weightSum="10">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:layout_marginTop="15dp"
-                android:layout_weight="5"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:paddingLeft="10dp"
-                android:textAlignment="center"
-                android:weightSum="10">
-
-                <ImageView
-                    android:id="@+id/cloudIV"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_weight="2"
-                    app:srcCompat="@drawable/cloudicon" />
-
-                <TextView
-                    android:id="@+id/cloudTV"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="8"
-                    android:fontFamily="sans-serif-medium"
-                    android:text="Cloud"
-                    android:textColor="@color/dark"
-                    android:textSize="14sp" />
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/cloudValTV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="5"
-                android:fontFamily="@font/poppins_medium"
-                android:paddingLeft="20dp"
-                android:paddingTop="5dp"
-                android:paddingBottom="15dp"
-                android:text="60%"
-                android:textAlignment="center"
-                android:textColor="@color/dark"
-                android:textSize="12sp" />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/pressureCV"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/home_item_back_shape"
-        android:elevation="@dimen/_19ssp"
-        app:cardCornerRadius="15dp"
-        app:layout_constraintEnd_toStartOf="@+id/secEnd"
-        app:layout_constraintStart_toStartOf="@+id/secStart"
-        app:layout_constraintTop_toBottomOf="@+id/cloudCV">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/home_item_back_shape"
-            android:orientation="vertical"
-            android:weightSum="10">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:layout_marginTop="15dp"
-                android:layout_weight="5"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:paddingLeft="10dp"
-                android:textAlignment="center"
-                android:weightSum="10">
-
-                <ImageView
-                    android:id="@+id/pressureIV"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_weight="2"
-                    app:srcCompat="@drawable/pressureicon" />
-
-                <TextView
-                    android:id="@+id/pressureTV"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="8"
-                    android:fontFamily="sans-serif-medium"
-                    android:text="Pressure"
-                    android:textColor="@color/dark"
-                    android:textSize="14sp" />
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/pressureValTV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="5"
-                android:fontFamily="@font/poppins_medium"
-                android:paddingLeft="20dp"
-                android:paddingTop="5dp"
-                android:paddingBottom="15dp"
-                android:text="6m/s"
-                android:textAlignment="center"
-                android:textColor="@color/dark"
-                android:textSize="12sp" />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/windCV"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/home_item_back_shape"
-        android:elevation="@dimen/_19ssp"
-        app:cardCornerRadius="15dp"
-        app:layout_constraintEnd_toStartOf="@+id/firstEnd"
-        app:layout_constraintStart_toStartOf="@+id/firstStart"
-        app:layout_constraintTop_toBottomOf="@+id/feelslikeCV">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/home_item_back_shape"
-            android:orientation="vertical"
-            android:weightSum="10">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:layout_marginTop="15dp"
-                android:layout_weight="5"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:paddingLeft="10dp"
-                android:textAlignment="center"
-                android:weightSum="10">
-
-                <ImageView
-                    android:id="@+id/windIV"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_weight="2"
-                    app:srcCompat="@drawable/windicon" />
-
-                <TextView
-                    android:id="@+id/windTV"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="8"
-                    android:fontFamily="sans-serif-medium"
-                    android:text="Wind speed"
-                    android:textColor="@color/dark"
-                    android:textSize="14sp" />
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/windValTV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="5"
-                android:fontFamily="@font/poppins_medium"
-                android:paddingLeft="20dp"
-                android:paddingTop="5dp"
-                android:paddingBottom="15dp"
-                android:text="3 km/hr"
-                android:textAlignment="center"
-                android:textColor="@color/dark"
-                android:textSize="12sp" />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/visibilityCV"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/home_item_back_shape"
-        android:elevation="@dimen/_19ssp"
-        app:cardCornerRadius="15dp"
-        app:layout_constraintEnd_toStartOf="@+id/firstEnd"
-        app:layout_constraintStart_toStartOf="@+id/firstStart"
-        app:layout_constraintTop_toBottomOf="@+id/windCV">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/home_item_back_shape"
-            android:orientation="vertical"
-            android:weightSum="10">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:layout_marginTop="15dp"
-                android:layout_weight="5"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:paddingLeft="10dp"
-                android:textAlignment="center"
-                android:weightSum="10">
-
-                <ImageView
-                    android:id="@+id/visibilityIV"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_weight="2"
-                    app:srcCompat="@drawable/eyeicon" />
-
-                <TextView
-                    android:id="@+id/visibilityTV"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="8"
-                    android:fontFamily="sans-serif-medium"
-                    android:text="Visibility"
-                    android:textColor="@color/dark"
-                    android:textSize="14sp" />
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/visibilityValIV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="5"
-                android:fontFamily="@font/poppins_medium"
-                android:paddingLeft="20dp"
-                android:paddingTop="5dp"
-                android:paddingBottom="15dp"
-                android:text="1000"
-                android:textAlignment="center"
-                android:textColor="@color/dark"
-                android:textSize="12sp" />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/secEnd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent=".95" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/firstStart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent=".05" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/secStart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent=".525" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/firstEnd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent=".475"/>
+        <ImageView
+            android:id="@+id/gearIconIV"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/gearicon" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
