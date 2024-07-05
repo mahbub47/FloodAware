@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -21,22 +22,23 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.floodaware.databinding.ActivityHomeScreenBinding;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.kwabenaberko.newsapilib.NewsApiClient;
 import com.kwabenaberko.newsapilib.models.request.EverythingRequest;
 import com.kwabenaberko.newsapilib.models.response.ArticleResponse;
 
 public class HomeScreen extends AppCompatActivity {
 
-    ImageView settingIV;
-    ImageView weatherIV;
-    ImageView safetyIV;
-    ImageView floodhubIV;
-    ImageView homeIV;
+    ActivityHomeScreenBinding binding;
 
     private final String SHARED_PREFS_02 = "location";
     public static final String SHARED_PREFS = "loginPrefs";
     SharedPreferences sSharedPreference;
     SharedPreferences wSharedPreference;
+
+
+    BottomNavigationView bnv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,31 +51,35 @@ public class HomeScreen extends AppCompatActivity {
             return insets;
         });
 
-        homeIV = findViewById(R.id.homeIcontIV);
+        binding = ActivityHomeScreenBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
         loadfragment(new HomeFragment(), 1);
 
-        settingIV = findViewById(R.id.gearIconIV);
-        settingIV.setOnClickListener(v -> {
-            loadfragment(new SettingFragment(), 0);
-        });
+        binding.bottomNav.setOnItemSelectedListener(item -> {
 
-        homeIV.setOnClickListener(v -> {
-            loadfragment(new HomeFragment(), 0);
-        });
+            switch (item.getItemId()){
 
-        weatherIV = findViewById(R.id.weatherIconIV);
-        weatherIV.setOnClickListener(v -> {
-            loadfragment(new WeatherFragment(), 0);
-        });
+                case R.id.news:
+                    loadfragment(new HomeFragment(),0);
+                    break;
+                case R.id.alert:
+                    loadfragment(new EmergencyFragment(),0);
+                    break;
+                case R.id.safety:
+                    loadfragment(new SafetylistFragment(),0);
+                    break;
+                case R.id.weather:
+                    loadfragment(new WeatherFragment(),0);
+                    break;
+                case R.id.setting:
+                    loadfragment(new SettingFragment(),0);
+                    break;
 
-        safetyIV = findViewById(R.id.safetyIconIV);
-        safetyIV.setOnClickListener(v -> {
-            loadfragment(new SafetylistFragment(),0);
-        });
 
-        floodhubIV = findViewById(R.id.floodhubIconIV);
-        floodhubIV.setOnClickListener(v -> {
-            loadfragment(new EmergencyFragment(), 0);
+            }
+
+            return true;
         });
 
     }
@@ -132,5 +138,4 @@ public class HomeScreen extends AppCompatActivity {
         startActivity(new Intent(HomeScreen.this,Login.class));
         finish();
     }
-
 }

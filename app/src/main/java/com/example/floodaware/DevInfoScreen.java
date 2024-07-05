@@ -28,7 +28,7 @@ public class DevInfoScreen extends AppCompatActivity {
 
         backDevinfo = findViewById(R.id.backIconDevInfo);
         backDevinfo.setOnClickListener(v -> {
-            startActivity(new Intent(DevInfoScreen.this,SettingScreen.class));
+            startActivity(new Intent(DevInfoScreen.this,HomeScreen.class));
             finish();
         });
 
@@ -40,7 +40,7 @@ public class DevInfoScreen extends AppCompatActivity {
     }
     @Override
     public void onBackPressed() {
-        startActivity(new Intent(DevInfoScreen.this, SettingScreen.class));
+        startActivity(new Intent(DevInfoScreen.this, HomeScreen.class));
         finish();
     }
 }

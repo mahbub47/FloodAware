@@ -77,7 +77,7 @@ public class SettingScreen extends AppCompatActivity {
         });
 
         weatherIV.setOnClickListener(v -> {
-            startActivity(new Intent(SettingScreen.this, WeatherUpdate.class));
+            startActivity(new Intent(SettingScreen.this, EditprofileScreen.class));
             finish();
         });
 

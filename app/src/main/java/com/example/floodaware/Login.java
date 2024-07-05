@@ -29,10 +29,13 @@ public class Login extends AppCompatActivity {
     Button loginBtn;
     DatabaseReference reference;
 
-    SharedPreferences lSharedPreference,nSharedPreference,pSharedPreference;
+    SharedPreferences lSharedPreference,nSharedPreference,pSharedPreference,eSharedPreferences,passSharedPreference;
     public static final String SHARED_PREFS = "loginPrefs";
     public static final String SHARED_PREFS_03 = "username";
     public static final String SHARED_PREFS_04 = "userphone";
+    public  static final String SHARED_PREFS_O5 = "useremail";
+
+    public  static final String SHARED_PREFS_O6 = "userpass";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +71,7 @@ public class Login extends AppCompatActivity {
                             String dbpass = snapshot.child(phone).child("pass").getValue(String.class);
                             String dbPhone = snapshot.child(phone).child("phone").getValue(String.class);
                             String dbName = snapshot.child(phone).child("name").getValue(String.class);
+                            String dbEmail = snapshot.child(phone).child("email").getValue(String.class);
                             if (pass.equals(dbpass)) {
                                 lSharedPreference = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
                                 SharedPreferences.Editor editor = lSharedPreference.edit();
@@ -83,6 +87,16 @@ public class Login extends AppCompatActivity {
                                 SharedPreferences.Editor editor2 = pSharedPreference.edit();
                                 editor2.putString(SHARED_PREFS_04,dbPhone);
                                 editor2.apply();
+
+                                eSharedPreferences = getSharedPreferences(SHARED_PREFS_O5,MODE_PRIVATE);
+                                SharedPreferences.Editor editor3 = eSharedPreferences.edit();
+                                editor3.putString(SHARED_PREFS_O5,dbEmail);
+                                editor3.apply();
+
+                                passSharedPreference = getSharedPreferences(SHARED_PREFS_O6,MODE_PRIVATE);
+                                SharedPreferences.Editor editor4 = passSharedPreference.edit();
+                                editor4.putString(SHARED_PREFS_O6,dbpass);
+                                editor4.apply();
 
                                 Toast.makeText(Login.this, "Login Successful", Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(Login.this, HomeScreen.class));

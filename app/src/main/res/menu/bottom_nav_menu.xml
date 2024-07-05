@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/news"
+        android:icon="@drawable/newsicon"
+        android:title="News" />
+    <item android:id="@+id/alert"
+        android:icon="@drawable/alertsicon"
+        android:title="Emergency" />
+    <item android:id="@+id/safety"
+        android:icon="@drawable/safety"
+        android:title="Safety" />
+    <item android:id="@+id/weather"
+        android:icon="@drawable/weathericon"
+        android:title="Weather" />
+    <item android:id="@+id/setting"
+        android:icon="@drawable/gearicon"
+        android:title="Settings" />
+</menu>

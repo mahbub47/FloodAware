@@ -7,4 +7,5 @@
     <color name="light">#F9F9F9</color>
     <color name="gray">#B7D1DA</color>
     <color name="newsgray">#E7ECEF</color>
+    <color name="active">#FFBA08</color>
 </resources>
