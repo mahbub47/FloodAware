@@ -60,57 +60,186 @@
         app:layout_constraintVertical_bias="0.333"
         app:srcCompat="@drawable/editprofileicon" />
 
-
-
-    <Button
-        android:id="@+id/logoutBtn"
+    <LinearLayout
         android:layout_width="0dp"
-        android:layout_height="48dp"
+        android:layout_height="0dp"
         android:layout_marginTop="30dp"
-        android:background="@drawable/setting_button_shape"
-        android:fontFamily="@font/poppins_semibold"
-        android:text="Logout"
-        android:textColor="@color/light"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline15"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/porifileIV" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline15"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:gravity="start"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent=".65"/>
-
-
-    <TextView
-        android:id="@+id/devsInfoTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Developed by..."
+        android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logoutBtn"
-        app:layout_constraintVertical_bias="0.964" />
+        app:layout_constraintTop_toBottomOf="@+id/porifileIV"
+        app:layout_constraintVertical_bias="1.0">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent=".1" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Setting"
+            android:textColor="@color/dark"
+            android:textSize="18sp" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent=".9" />
+        <LinearLayout
+            android:id="@+id/lin01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingTop="5dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/notification" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:paddingLeft="10dp"
+                android:text="Notification"
+                android:textColor="@color/dark"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lin02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingTop="5dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/privacy" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:paddingLeft="10dp"
+                android:text="Privacy policy"
+                android:textColor="@color/dark"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lin03"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingTop="5dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/logout"
+                android:layout_marginLeft="4dp"/>
+
+            <TextView
+                android:id="@+id/logoutTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:paddingLeft="10dp"
+                android:text="Logout"
+                android:textColor="@color/dark"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Support"
+            android:textColor="@color/dark"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:id="@+id/lin04"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingTop="5dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/terms" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:paddingLeft="10dp"
+                android:text="Terms and conditions"
+                android:textColor="@color/dark"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lin05"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingTop="5dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/contact" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:paddingLeft="10dp"
+                android:text="Contact us"
+                android:textColor="@color/dark"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lin06"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingTop="5dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/about" />
+
+            <TextView
+                android:id="@+id/devsInfoTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:paddingLeft="10dp"
+                android:text="About us"
+                android:textColor="@color/dark"
+                android:textSize="16sp" />
+        </LinearLayout>
 
 
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

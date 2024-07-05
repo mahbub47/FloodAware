@@ -31,7 +31,7 @@ import java.io.IOException;
 
 public class SettingFragment extends Fragment {
 
-    Button logoutBtn;
+    TextView logoutTV;
     TextView devRedirect;
     TextView userNameTV,userPhoneTV;
     public static final String SHARED_PREFS_03 = "username";
@@ -69,8 +69,8 @@ public class SettingFragment extends Fragment {
         String userPhone = pSharedPreference.getString(SHARED_PREFS_04,"User phone");
         userPhoneTV.setText(userPhone);
 
-        logoutBtn = view.findViewById(R.id.logoutBtn);
-        logoutBtn.setOnClickListener(v -> {
+        logoutTV = view.findViewById(R.id.logoutTV);
+        logoutTV.setOnClickListener(v -> {
             ((HomeScreen)getActivity()).logout();
         });
 

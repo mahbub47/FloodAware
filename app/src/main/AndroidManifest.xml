@@ -17,6 +17,15 @@
         android:theme="@style/Theme.FloodAware"
         tools:targetApi="31">
         <activity
+            android:name=".EmergencySteps"
+            android:exported="false" />
+        <activity
+            android:name=".AfterFloodScreen"
+            android:exported="false" />
+        <activity
+            android:name=".DuringFloodScreen"
+            android:exported="false" />
+        <activity
             android:name=".FloodhubActivity"
             android:exported="false" />
         <activity
@@ -32,7 +41,7 @@
             android:name=".DevInfoScreen"
             android:exported="false" />
         <activity
-            android:name=".SettingScreen"
+            android:name=".BeforeFloodScreen"
             android:exported="false" />
         <activity
             android:name=".HomeScreen"

@@ -16,7 +16,7 @@ import android.widget.Button;
 
 public class EmergencyFragment extends Fragment {
 
-    Button floodhubBtn, emergencyCallBtn;
+    Button floodhubBtn, emergencyCallBtn,emergencyModeBtn;
     String phone_number = "16163";
 
     public EmergencyFragment() {
@@ -42,6 +42,12 @@ public class EmergencyFragment extends Fragment {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+        });
+
+        emergencyModeBtn = view.findViewById(R.id.emergencyModeBtn);
+        emergencyModeBtn.setOnClickListener(v -> {
+            this.getActivity().startActivity(new Intent(this.getContext(),EmergencySteps.class));
+            this.getActivity().finish();
         });
 
         return view;
