@@ -125,51 +125,34 @@ public class EditprofileScreen extends AppCompatActivity {
                 passSharedPreference = getSharedPreferences(SHARED_PREFS_O6,MODE_PRIVATE);
                 String pass = passSharedPreference.getString(SHARED_PREFS_O6,"User pass");
 
-                Query checkuser = reference.orderByChild("email").equalTo(email);
 
                 HelperClass helper = new HelperClass(name,email,phone,pass);
 
-                checkuser.addListenerForSingleValueEvent(new ValueEventListener() {
+                reference.child(phone).setValue(helper).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if(snapshot.exists()){
-                            Toast.makeText(EditprofileScreen.this,"This email is already registered",Toast.LENGTH_SHORT).show();
-                            emailET.setError("email already registered");
-                            emailET.requestFocus();
-                        }else {
-                            reference.child(phone).setValue(helper).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    nSharedPreference = getSharedPreferences(SHARED_PREFS_03,MODE_PRIVATE);
-                                    SharedPreferences.Editor editor1 = nSharedPreference.edit();
-                                    editor1.putString(SHARED_PREFS_03,name);
-                                    editor1.apply();
+                    public void onComplete(@NonNull Task<Void> task) {
+                        nSharedPreference = getSharedPreferences(SHARED_PREFS_03,MODE_PRIVATE);
+                        SharedPreferences.Editor editor1 = nSharedPreference.edit();
+                        editor1.putString(SHARED_PREFS_03,name);
+                        editor1.apply();
 
-                                    pSharedPreference = getSharedPreferences(SHARED_PREFS_04,MODE_PRIVATE);
-                                    SharedPreferences.Editor editor2 = pSharedPreference.edit();
-                                    editor2.putString(SHARED_PREFS_04,phone);
-                                    editor2.apply();
+                        pSharedPreference = getSharedPreferences(SHARED_PREFS_04,MODE_PRIVATE);
+                        SharedPreferences.Editor editor2 = pSharedPreference.edit();
+                        editor2.putString(SHARED_PREFS_04,phone);
+                        editor2.apply();
 
-                                    eSharedPreference = getSharedPreferences(SHARED_PREFS_O5,MODE_PRIVATE);
-                                    SharedPreferences.Editor editor3 = eSharedPreference.edit();
-                                    editor3.putString(SHARED_PREFS_O5,email);
-                                    editor3.apply();
+                        eSharedPreference = getSharedPreferences(SHARED_PREFS_O5,MODE_PRIVATE);
+                        SharedPreferences.Editor editor3 = eSharedPreference.edit();
+                        editor3.putString(SHARED_PREFS_O5,email);
+                        editor3.apply();
 
-                                    passSharedPreference = getSharedPreferences(SHARED_PREFS_O6,MODE_PRIVATE);
-                                    SharedPreferences.Editor editor4 = passSharedPreference.edit();
-                                    editor4.putString(SHARED_PREFS_O6,pass);
-                                    editor4.apply();
-                                    Toast.makeText(EditprofileScreen.this,"Profile updated",Toast.LENGTH_SHORT).show();
-                                    startActivity(new Intent(EditprofileScreen.this,HomeScreen.class));
-                                    finish();
-                                }
-                            });
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
+                        passSharedPreference = getSharedPreferences(SHARED_PREFS_O6,MODE_PRIVATE);
+                        SharedPreferences.Editor editor4 = passSharedPreference.edit();
+                        editor4.putString(SHARED_PREFS_O6,pass);
+                        editor4.apply();
+                        Toast.makeText(EditprofileScreen.this,"Profile updated",Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(EditprofileScreen.this,HomeScreen.class));
+                        finish();
                     }
                 });
 
