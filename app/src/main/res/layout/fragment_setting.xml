@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout android:id="@+id/homeLayout01"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/home_news_back_shape"
+    android:background="@color/light"
     android:paddingBottom="20dp"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -18,7 +18,7 @@
         android:scaleType="centerCrop"
         app:srcCompat="@drawable/profileicon"
         app:strokeColor="@color/primary"
-        app:strokeWidth="3dp"
+        app:strokeWidth="1dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -67,6 +67,7 @@
         android:gravity="start"
         android:orientation="vertical"
         android:padding="10dp"
+        android:layout_marginStart="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -86,7 +87,7 @@
             android:id="@+id/lin01"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:gravity="center"
             android:orientation="horizontal"
             android:paddingTop="5dp">
@@ -110,7 +111,7 @@
             android:id="@+id/lin02"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:gravity="center"
             android:orientation="horizontal"
             android:paddingTop="5dp">
@@ -134,7 +135,7 @@
             android:id="@+id/lin03"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:gravity="center"
             android:orientation="horizontal"
             android:paddingTop="5dp">
@@ -159,7 +160,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="20dp"
             android:fontFamily="@font/poppins_semibold"
             android:text="Support"
             android:textColor="@color/dark"
@@ -169,7 +170,7 @@
             android:id="@+id/lin04"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:gravity="center"
             android:orientation="horizontal"
             android:paddingTop="5dp">
@@ -193,7 +194,7 @@
             android:id="@+id/lin05"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:gravity="center"
             android:orientation="horizontal"
             android:paddingTop="5dp">
@@ -217,7 +218,7 @@
             android:id="@+id/lin06"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:gravity="center"
             android:orientation="horizontal"
             android:paddingTop="5dp">
