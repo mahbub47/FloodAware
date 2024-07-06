@@ -79,7 +79,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_semibold"
-            android:text="Setting"
+            android:text="Settings"
             android:textColor="@color/dark"
             android:textSize="18sp" />
 
