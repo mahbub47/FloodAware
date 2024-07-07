@@ -1,8 +1,11 @@
 package com.example.floodaware;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.core.graphics.Insets;
@@ -23,10 +27,18 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.floodaware.databinding.ActivityHomeScreenBinding;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.storage.FileDownloadTask;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.kwabenaberko.newsapilib.NewsApiClient;
 import com.kwabenaberko.newsapilib.models.request.EverythingRequest;
 import com.kwabenaberko.newsapilib.models.response.ArticleResponse;
+
+import java.io.File;
+import java.io.IOException;
 
 public class HomeScreen extends AppCompatActivity {
 
@@ -36,6 +48,11 @@ public class HomeScreen extends AppCompatActivity {
     public static final String SHARED_PREFS = "loginPrefs";
     SharedPreferences sSharedPreference;
     SharedPreferences wSharedPreference;
+    public static final String SHARED_PREFS_04 = "userphone";
+    SharedPreferences pSharedPreference;
+    FirebaseStorage storage;
+    StorageReference storageReference;
+    private Bitmap imageDB;
 
 
     BottomNavigationView bnv;
@@ -50,6 +67,9 @@ public class HomeScreen extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        getImageFromDB();
+
 
         binding = ActivityHomeScreenBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -137,5 +157,35 @@ public class HomeScreen extends AppCompatActivity {
 
         startActivity(new Intent(HomeScreen.this,Login.class));
         finish();
+    }
+
+    public void getImageFromDB(){
+        pSharedPreference = getSharedPreferences(SHARED_PREFS_04,MODE_PRIVATE);
+        String userPhone = pSharedPreference.getString(SHARED_PREFS_04,"User phone");
+
+        storage = FirebaseStorage.getInstance();
+        storageReference = storage.getReference("image/" + userPhone);
+
+        try {
+            File localFIle = File.createTempFile("tempfile" ,".jpg");
+            storageReference.getFile(localFIle).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+                    imageDB = BitmapFactory.decodeFile(localFIle.getAbsolutePath());
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    imageDB = null;
+                }
+            });
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public Bitmap passImageFromHome(){
+        return imageDB;
     }
 }

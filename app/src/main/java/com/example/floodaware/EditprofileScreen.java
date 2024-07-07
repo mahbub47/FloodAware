@@ -63,6 +63,7 @@ public class EditprofileScreen extends AppCompatActivity {
     FirebaseStorage storage;
     StorageReference storageReference;
     Uri imageUri;
+    Bitmap bitmap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -125,6 +126,9 @@ public class EditprofileScreen extends AppCompatActivity {
                 passSharedPreference = getSharedPreferences(SHARED_PREFS_O6,MODE_PRIVATE);
                 String pass = passSharedPreference.getString(SHARED_PREFS_O6,"User pass");
 
+                if (imageUri != null)
+                    uploadImage();
+
 
                 HelperClass helper = new HelperClass(name,email,phone,pass);
 
@@ -174,21 +178,20 @@ public class EditprofileScreen extends AppCompatActivity {
             storageReference.getFile(localFIle).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
-
-                    Bitmap bitmap = BitmapFactory.decodeFile(localFIle.getAbsolutePath());
+                    bitmap = BitmapFactory.decodeFile(localFIle.getAbsolutePath());
                     profileIV.setImageBitmap(bitmap);
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
-                        profileIV.setImageResource(R.drawable.profileicon);
+                    profileIV.setImageResource(R.drawable.profileicon);
+
                 }
             });
 
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
     }
 
     public boolean validateUsername(){
@@ -231,7 +234,6 @@ public class EditprofileScreen extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         imageUri = data.getData();
         profileIV.setImageURI(imageUri);
-        uploadImage();
     }
 
     private void uploadImage() {
@@ -239,30 +241,18 @@ public class EditprofileScreen extends AppCompatActivity {
         pSharedPreference = getSharedPreferences(SHARED_PREFS_04,MODE_PRIVATE);
         String userPhone = pSharedPreference.getString(SHARED_PREFS_04,"User phone");
 
-        final ProgressDialog pd = new ProgressDialog(EditprofileScreen.this);
-        pd.setTitle("Uploading image...");
-        pd.show();
-
 
         StorageReference mountainsRef = storageReference.child("image/" + userPhone);
 
         mountainsRef.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                pd.dismiss();
                 Toast.makeText(EditprofileScreen.this,"Profile picture uploaded",Toast.LENGTH_SHORT).show();
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                pd.dismiss();
                 Toast.makeText(EditprofileScreen.this,"failed to upload profile picture",Toast.LENGTH_SHORT).show();
-            }
-        }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-            @Override
-            public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
-                double progressPercent = (100.00 * snapshot.getBytesTransferred() / snapshot.getTotalByteCount());
-                pd.setMessage("Percentage: " + (int)progressPercent + "%");
             }
         });
 

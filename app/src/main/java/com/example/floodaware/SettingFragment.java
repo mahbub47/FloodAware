@@ -13,6 +13,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,13 +38,12 @@ public class SettingFragment extends Fragment {
     public static final String SHARED_PREFS_03 = "username";
     public static final String SHARED_PREFS_04 = "userphone";
     SharedPreferences nSharedPreference,pSharedPreference;
-
     ImageView editprofileIV,profileIV;
-
     Context ctx;
     FirebaseStorage storage;
     StorageReference storageReference;
     Uri imageUri;
+    Bitmap profImg;
     public SettingFragment() {
         // Required empty public constructor
     }
@@ -54,6 +54,8 @@ public class SettingFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_setting, container, false);
         ctx = this.getActivity().getApplicationContext();
+
+        profImg = ((HomeScreen)getActivity()).passImageFromHome();
 
         profileIV = view.findViewById(R.id.porifileIV);
 
@@ -82,39 +84,23 @@ public class SettingFragment extends Fragment {
 
         editprofileIV = view.findViewById(R.id.editprofileIV);
         editprofileIV.setOnClickListener(v -> {
-            startActivity(new Intent(this.getActivity(), EditprofileScreen.class));
+            Intent intent = new Intent(this.getActivity(), EditprofileScreen.class);
+            this.getActivity().startActivity(intent);
             this.getActivity().finish();
         });
+
+        int i = 1;
+        System.out.println(i);
 
         return view;
     }
 
     private void setImagePro() {
 
-        pSharedPreference = this.getActivity().getSharedPreferences(SHARED_PREFS_04,MODE_PRIVATE);
-        String userPhone = pSharedPreference.getString(SHARED_PREFS_04,"User phone");
-
-        storage = FirebaseStorage.getInstance();
-        storageReference = storage.getReference("image/" + userPhone);
-
-        try {
-            File localFIle = File.createTempFile("tempfile" ,".jpg");
-            storageReference.getFile(localFIle).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
-                @Override
-                public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
-
-                    Bitmap bitmap = BitmapFactory.decodeFile(localFIle.getAbsolutePath());
-                    profileIV.setImageBitmap(bitmap);
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    profileIV.setImageResource(R.drawable.profileicon);
-                }
-            });
-
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        if (profImg != null){
+            profileIV.setImageBitmap(profImg);
+        }else {
+            profileIV.setImageResource(R.drawable.profileicon);
         }
 
     }
